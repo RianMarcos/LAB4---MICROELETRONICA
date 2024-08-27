@@ -1,0 +1,15 @@
+V3 7
+FL C:/Users/Rian/Documents/MICROELETRONICA/LAB4/relogio_module/aux_relogio_module.vhd 2024/05/06.18:59:40 P.20131013
+EN work/aux_relogio_module 1715048851 \
+      FL C:/Users/Rian/Documents/MICROELETRONICA/LAB4/relogio_module/aux_relogio_module.vhd \
+      PB ieee/std_logic_1164 1381692176
+AR work/aux_relogio_module/Behavioral 1715048852 \
+      FL C:/Users/Rian/Documents/MICROELETRONICA/LAB4/relogio_module/aux_relogio_module.vhd \
+      EN work/aux_relogio_module 1715048851
+FL C:/Users/Rian/Documents/MICROELETRONICA/LAB4/relogio_module/relogio_module.vhd 2024/05/06.20:25:13 P.20131013
+EN work/relogio_module 1715048853 \
+      FL C:/Users/Rian/Documents/MICROELETRONICA/LAB4/relogio_module/relogio_module.vhd \
+      PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181
+AR work/relogio_module/Behavioral 1715048854 \
+      FL C:/Users/Rian/Documents/MICROELETRONICA/LAB4/relogio_module/relogio_module.vhd \
+      EN work/relogio_module 1715048853 CP aux_relogio_module

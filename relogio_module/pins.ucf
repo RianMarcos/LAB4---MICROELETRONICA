@@ -1,0 +1,15 @@
+NET "pausa" LOC = "G18";
+NET "rst" LOC = "H18";
+NET "conf" LOC = "K18";
+NET "clk" LOC = "B8";
+NET "anodo(0)" LOC = "F17";
+NET "anodo(1)" LOC = "H17";
+NET "anodo(2)" LOC = "C18";
+NET "anodo(3)" LOC = "F15";
+NET "dig_x(6)" LOC = "L18";
+NET "dig_x(5)" LOC = "F18";
+NET "dig_x(4)" LOC = "D17";
+NET "dig_x(3)" LOC = "D16";
+NET "dig_x(2)" LOC = "G14";
+NET "dig_x(1)" LOC = "J17";
+NET "dig_x(0)" LOC = "H14"; 

@@ -1,0 +1,5 @@
+xst -intstyle ise -ifn "C:/Users/Rian/Documents/MICROELETRONICA/LAB4/relogio_module/relogio_module.xst" -ofn "C:/Users/Rian/Documents/MICROELETRONICA/LAB4/relogio_module/relogio_module.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc pins.ucf -p xc3s500e-fg320-5 relogio_module.ngc relogio_module.ngd  
+map -intstyle ise -p xc3s500e-fg320-5 -cm area -ir off -pr off -c 100 -o relogio_module_map.ncd relogio_module.ngd relogio_module.pcf 
+par -w -intstyle ise -ol high -t 1 relogio_module_map.ncd relogio_module.ncd relogio_module.pcf 
+trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml relogio_module.twx relogio_module.ncd -o relogio_module.twr relogio_module.pcf -ucf pins.ucf 

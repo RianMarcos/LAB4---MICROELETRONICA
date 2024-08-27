@@ -1,0 +1,532 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.10 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.10 secs
+ 
+--> Reading design: relogio_module.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "relogio_module.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "relogio_module"
+Output Format                      : NGC
+Target Device                      : xc3s500e-5-fg320
+
+---- Source Options
+Top Module Name                    : relogio_module
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Users/Rian/Documents/MICROELETRONICA/LAB4/relogio_module/aux_relogio_module.vhd" in Library work.
+Entity <aux_relogio_module> compiled.
+Entity <aux_relogio_module> (Architecture <Behavioral>) compiled.
+Compiling vhdl file "C:/Users/Rian/Documents/MICROELETRONICA/LAB4/relogio_module/relogio_module.vhd" in Library work.
+Entity <relogio_module> compiled.
+Entity <relogio_module> (Architecture <Behavioral>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <relogio_module> in library <work> (architecture <Behavioral>) with generics.
+	freq = 5
+	periodo = 1
+
+Analyzing hierarchy for entity <aux_relogio_module> in library <work> (architecture <Behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing generic Entity <relogio_module> in library <work> (Architecture <Behavioral>).
+	freq = 5
+	periodo = 1
+WARNING:Xst:819 - "C:/Users/Rian/Documents/MICROELETRONICA/LAB4/relogio_module/relogio_module.vhd" line 71: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <conf>, <anodo_aux>
+Entity <relogio_module> analyzed. Unit <relogio_module> generated.
+
+Analyzing Entity <aux_relogio_module> in library <work> (Architecture <Behavioral>).
+Entity <aux_relogio_module> analyzed. Unit <aux_relogio_module> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <aux_relogio_module>.
+    Related source file is "C:/Users/Rian/Documents/MICROELETRONICA/LAB4/relogio_module/aux_relogio_module.vhd".
+Unit <aux_relogio_module> synthesized.
+
+
+Synthesizing Unit <relogio_module>.
+    Related source file is "C:/Users/Rian/Documents/MICROELETRONICA/LAB4/relogio_module/relogio_module.vhd".
+WARNING:Xst:1780 - Signal <d_x_internal> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+    Found finite state machine <FSM_0> for signal <anodo_aux>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 4                                              |
+    | Inputs             | 0                                              |
+    | Outputs            | 4                                              |
+    | Clock              | clk                       (rising_edge)        |
+    | Clock enable       | anodo_aux$cmp_eq0000      (positive)           |
+    | Power Up State     | 1110                                           |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+WARNING:Xst:737 - Found 32-bit latch for signal <d_x>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+    Found 4-bit register for signal <anodo>.
+    Found 32-bit adder for signal <anodo_aux$addsub0000> created at line 47.
+    Found 32-bit up counter for signal <aux_clk>.
+    Found 3-bit up counter for signal <cont>.
+    Found 4-bit up counter for signal <d_1>.
+    Found 4-bit adder for signal <d_1$add0000> created at line 124.
+    Found 3-bit adder for signal <d_1$add0001> created at line 121.
+    Found 4-bit up counter for signal <d_2>.
+    Found 4-bit adder for signal <d_2$add0000> created at line 127.
+    Found 4-bit up counter for signal <d_3>.
+    Found 4-bit adder for signal <d_3$add0000> created at line 131.
+    Found 4-bit up counter for signal <d_4>.
+    Found 4-bit adder for signal <d_4$add0000> created at line 136.
+    Found 4-bit up counter for signal <d_5>.
+    Found 4-bit adder for signal <d_5$add0000> created at line 142.
+    Found 4-bit up counter for signal <d_6>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   8 Counter(s).
+	inferred   4 D-type flip-flop(s).
+	inferred   7 Adder/Subtractor(s).
+Unit <relogio_module> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 7
+ 3-bit adder                                           : 1
+ 32-bit adder                                          : 1
+ 4-bit adder                                           : 5
+# Counters                                             : 8
+ 3-bit up counter                                      : 1
+ 32-bit up counter                                     : 1
+ 4-bit up counter                                      : 6
+# Registers                                            : 1
+ 4-bit register                                        : 1
+# Latches                                              : 1
+ 32-bit latch                                          : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <anodo_aux/FSM> on signal <anodo_aux[1:4]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ 0111  | 0111
+ 1011  | 1011
+ 1101  | 1101
+ 1110  | 1110
+-------------------
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <31>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <30>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <29>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <28>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <27>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <26>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <25>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <24>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <23>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <22>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <21>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <20>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <19>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <18>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <17>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <16>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <15>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <14>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <13>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <12>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <11>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <10>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <9>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <8>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <7>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <6>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <5>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <4>. This FF/Latch will be trimmed during the optimization process.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 1
+# Adders/Subtractors                                   : 7
+ 3-bit adder                                           : 1
+ 32-bit adder                                          : 1
+ 4-bit adder                                           : 5
+# Counters                                             : 8
+ 3-bit up counter                                      : 1
+ 32-bit up counter                                     : 1
+ 4-bit up counter                                      : 6
+# Registers                                            : 4
+ Flip-Flops                                            : 4
+# Latches                                              : 1
+ 32-bit latch                                          : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+INFO:Xst:2261 - The FF/Latch <31> in Unit <LPM_LATCH_1> is equivalent to the following 27 FFs/Latches, which will be removed : <30> <29> <28> <27> <26> <25> <24> <23> <22> <21> <20> <19> <18> <17> <16> <15> <14> <13> <12> <11> <10> <9> <8> <7> <6> <5> <4> 
+WARNING:Xst:1710 - FF/Latch <31> (without init value) has a constant value of 0 in block <LPM_LATCH_1>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <relogio_module> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block relogio_module, actual ratio is 1.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 67
+ Flip-Flops                                            : 67
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : relogio_module.ngr
+Top Level Output File Name         : relogio_module
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 15
+
+Cell Usage :
+# BELS                             : 284
+#      GND                         : 1
+#      INV                         : 9
+#      LUT1                        : 62
+#      LUT2                        : 6
+#      LUT2_L                      : 1
+#      LUT3                        : 7
+#      LUT4                        : 55
+#      MUXCY                       : 70
+#      MUXF5                       : 8
+#      VCC                         : 1
+#      XORCY                       : 64
+# FlipFlops/Latches                : 71
+#      FDC                         : 3
+#      FDCE                        : 24
+#      FDE                         : 8
+#      FDR                         : 32
+#      LD                          : 4
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 14
+#      IBUF                        : 3
+#      OBUF                        : 11
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-5 
+
+ Number of Slices:                       76  out of   4656     1%  
+ Number of Slice Flip Flops:             71  out of   9312     0%  
+ Number of 4 input LUTs:                140  out of   9312     1%  
+ Number of IOs:                          15
+ Number of bonded IOBs:                  15  out of    232     6%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 67    |
+d_x_not0001(d_x_not00011:O)        | NONE(*)(d_x_0)         | 4     |
+-----------------------------------+------------------------+-------+
+(*) This 1 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------+------------------------+-------+
+Control Signal                     | Buffer(FF name)        | Load  |
+-----------------------------------+------------------------+-------+
+rst                                | IBUF                   | 27    |
+-----------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 8.375ns (Maximum Frequency: 119.401MHz)
+   Minimum input arrival time before clock: 8.974ns
+   Maximum output required time after clock: 5.480ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 8.375ns (frequency: 119.401MHz)
+  Total number of paths / destination ports: 22065 / 131
+-------------------------------------------------------------------------
+Delay:               8.375ns (Levels of Logic = 6)
+  Source:            cont_0 (FF)
+  Destination:       d_6_0 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: cont_0 to d_6_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              4   0.514   0.502  cont_0 (cont_0)
+     LUT4:I3->O            5   0.612   0.541  d_6_not00011111 (d_1_not0001)
+     LUT4:I3->O            5   0.612   0.541  d_6_not000111 (d_2_not0001)
+     LUT4:I3->O            5   0.612   0.541  d_6_not00011 (d_3_not0001)
+     LUT4:I3->O            5   0.612   0.541  d_6_not000121 (d_4_not0001)
+     LUT4:I3->O            5   0.612   0.541  d_6_not00012 (d_5_not0001)
+     LUT4:I3->O            4   0.612   0.499  d_6_not0001 (d_6_not0001)
+     FDCE:CE                   0.483          d_6_0
+    ----------------------------------------
+    Total                      8.375ns (4.669ns logic, 3.706ns route)
+                                       (55.7% logic, 44.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 24 / 24
+-------------------------------------------------------------------------
+Offset:              8.974ns (Levels of Logic = 7)
+  Source:            pausa (PAD)
+  Destination:       d_6_0 (FF)
+  Destination Clock: clk rising
+
+  Data Path: pausa to d_6_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   1.106   0.509  pausa_IBUF (pausa_IBUF)
+     LUT4:I0->O            5   0.612   0.541  d_6_not00011111 (d_1_not0001)
+     LUT4:I3->O            5   0.612   0.541  d_6_not000111 (d_2_not0001)
+     LUT4:I3->O            5   0.612   0.541  d_6_not00011 (d_3_not0001)
+     LUT4:I3->O            5   0.612   0.541  d_6_not000121 (d_4_not0001)
+     LUT4:I3->O            5   0.612   0.541  d_6_not00012 (d_5_not0001)
+     LUT4:I3->O            4   0.612   0.499  d_6_not0001 (d_6_not0001)
+     FDCE:CE                   0.483          d_6_0
+    ----------------------------------------
+    Total                      8.974ns (5.261ns logic, 3.713ns route)
+                                       (58.6% logic, 41.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'd_x_not0001'
+  Total number of paths / destination ports: 12 / 4
+-------------------------------------------------------------------------
+Offset:              3.949ns (Levels of Logic = 3)
+  Source:            conf (PAD)
+  Destination:       d_x_0 (LATCH)
+  Destination Clock: d_x_not0001 falling
+
+  Data Path: conf to d_x_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             9   1.106   0.849  conf_IBUF (conf_IBUF)
+     LUT3:I0->O            4   0.612   0.502  d_x_mux0008<0>21 (N2)
+     LUT4:I3->O            1   0.612   0.000  d_x_mux0008<3>70 (d_x_mux0008<3>)
+     LD:D                      0.268          d_x_3
+    ----------------------------------------
+    Total                      3.949ns (2.598ns logic, 1.351ns route)
+                                       (65.8% logic, 34.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 4 / 4
+-------------------------------------------------------------------------
+Offset:              4.063ns (Levels of Logic = 1)
+  Source:            anodo_3 (FF)
+  Destination:       anodo<3> (PAD)
+  Source Clock:      clk rising
+
+  Data Path: anodo_3 to anodo<3>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDE:C->Q              2   0.514   0.380  anodo_3 (anodo_3)
+     OBUF:I->O                 3.169          anodo_3_OBUF (anodo<3>)
+    ----------------------------------------
+    Total                      4.063ns (3.683ns logic, 0.380ns route)
+                                       (90.6% logic, 9.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'd_x_not0001'
+  Total number of paths / destination ports: 28 / 7
+-------------------------------------------------------------------------
+Offset:              5.480ns (Levels of Logic = 2)
+  Source:            d_x_1 (LATCH)
+  Destination:       dig_x<6> (PAD)
+  Source Clock:      d_x_not0001 falling
+
+  Data Path: d_x_1 to dig_x<6>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q               7   0.588   0.754  d_x_1 (d_x_1)
+     LUT4:I0->O            1   0.612   0.357  d_to_dig/dig_x_internal<2>1 (dig_x_2_OBUF)
+     OBUF:I->O                 3.169          dig_x_2_OBUF (dig_x<2>)
+    ----------------------------------------
+    Total                      5.480ns (4.369ns logic, 1.111ns route)
+                                       (79.7% logic, 20.3% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 4.55 secs
+ 
+--> 
+
+Total memory usage is 4514584 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   32 (   0 filtered)
+Number of infos    :    3 (   0 filtered)
+

@@ -1,0 +1,29 @@
+Command line:
+   relogio_module_tb_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  52900
+
+Mon May 06 23:28:17 2024
+
+
+ Elaboration Time: 0.03125 sec
+
+ Current Memory Usage: 5150.63 Meg
+
+ Total Signals          : 23
+ Total Nets             : 27
+ Total Signal Drivers   : 11
+ Total Blocks           : 5
+ Total Primitive Blocks : 3
+ Total Processes        : 5
+ Total Traceable Variables  : 18
+ Total Scalar Nets and Variables : 515
+Total Line Count : 82
+
+ Total Simulation Time: 0.140625 sec
+
+ Current Memory Usage: 4993.34 Meg
+
+Mon May 06 23:30:01 2024
+

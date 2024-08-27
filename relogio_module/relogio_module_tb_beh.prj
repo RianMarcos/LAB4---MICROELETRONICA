@@ -1,0 +1,3 @@
+vhdl work "aux_relogio_module.vhd"
+vhdl work "relogio_module.vhd"
+vhdl work "relogio_module_tb.vhd"
